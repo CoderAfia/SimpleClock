@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<head>
+    <title>
+        Simple Clock
+    </title>
+</head>
+
+<body style="text-align:center;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-style: inherit;font-weight: 600;background: url('clock.png') no-repeat;background-size: cover;">
+    <p id="clock">
+    </p>
+
+
+    <script>
+        function digitalClock() {
+            var watch = new Date();
+            var hr = watch.getHours();
+            var min = watch.getMinutes();
+            var sec = watch.getSeconds();
+            var session = "AM"
+            // var day = watch.getDay(); 
+            var date = watch.getDate();
+            var month = watch.getMonth();
+            var year = watch.getFullYear();
+
+            if (hr < 10) {
+                hr = "0" + hr;
+            }
+
+            if (min < 10) {
+                min = "0" + min;
+            }
+
+            if (sec < 10) {
+                sec = "0" + sec;
+            }
+
+            if (hr > 12) {
+                session = "PM";
+                hr = hr - 12;
+            }
+            var time = (hr + ":" + min + ":" + sec + "   " + session + " ; " + + date + " - " + month + " - " + year);
+            document.getElementById('clock').innerHTML = time;
+            
+        }
+        setInterval(digitalClock, 1000);
+        digitalClock(); 
+
+
+    </script>
+
+</body>
